@@ -18,17 +18,23 @@ def test_aikuisen_hinta():
 # Täydennä alla olevaan listaan pareja (ikä, odotettu hinta).
 # Poista sen jälkeen rivi @pytest.mark.skip.
 @pytest.mark.parametrize(
-    "ika, odotettu",
+    "ika, odotettu, Opiskelija",
     [
-        (0, 0.0),
-        (6, 0.0),
-        (7, 8.0),
-        (18, 15.0),
-        (65, 10.0),
+        (0, 0.0, False),
+        (6, 0.0, False),
+        (7, 8.0, False),
+        (17, 8.0, False),
+        (18, 15.0, False),
+        (65, 10.0, False),
+        (17, 8.0, True),
+        (18, 10.0, True),
+        (64, 10.0, True),
+        (65, 10.0, True)
     ],
 )
-def test_lippuhinta_raja_arvot(ika, odotettu):
-    assert lippuhinta(ika) == odotettu
+
+def test_lippuhinta_raja_arvot(ika, odotettu, Opiskelija):
+    assert lippuhinta(ika,Opiskelija) == odotettu
 
 
 # TEHTÄVÄ 3: Virheelliset iät nostavat ValueErrorin.
