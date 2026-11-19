@@ -25,7 +25,7 @@ def lippuhinta(ika, opiskelija=False):
     if ika <= 17:
         return LAPSI_HINTA
     if ika <= 64:
-        return AIKUINEN_HINTA # if Opiskelija else OPISKELIJA_HINTA
+        return AIKUINEN_HINTA if Opiskelija else OPISKELIJA_HINTA
     return ELAKELAINEN_HINTA
 
 
